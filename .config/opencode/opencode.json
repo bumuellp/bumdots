@@ -1,0 +1,63 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "{env:OPENCODE_OWN_BACKEND_BASE_URL}",
+        "headers": {
+          "Authorization": "Bearer {env:OPENCODE_OWN_BACKEND_TOKEN}"
+        }
+      },
+      "models": {
+        "qwen3-coder-next-256k:latest": {
+          "name": "Qwen 3 Coder Next (256k)",
+          "limit": { "context": 262144, "output": 4096 }
+        },
+        "gemma4:26b": {
+          "name": "gemma4:26b",
+          "limit": { "context": 262144, "output": 4096 }
+        },
+        "qwen3.5:122b": {
+          "name": "Qwen 3.5 (122B)",
+          "limit": { "context": 32768, "output": 4096 }
+        },
+        "deepseek-r1:70b-llama-distill-q8_0": {
+          "name": "DeepSeek R1 70B (Q8)"
+        },
+        "nemotron-3-super:latest": {
+          "name": "Nemotron 3 Super"
+        },
+        "mixtral:8x22b": {
+          "name": "Mixtral 8x22B"
+        },
+        "32k-llama3.3:latest": {
+          "name": "Llama 3.3 (32k)",
+          "limit": { "context": 32768, "output": 4096 }
+        },
+        "glm-4.7-flash:q8_0": {
+          "name": "GLM 4.7 Flash"
+        },
+        "qwen3-coder:30b": {
+          "name": "Qwen 3 Coder 30B"
+        },
+        "qwen2.5-coder:14b": {
+          "name": "Qwen 2.5 Coder 14B"
+        },
+        "deepseek-r1:14b": {
+          "name": "DeepSeek R1 14B"
+        },
+        "deepseek-r1:7b": {
+          "name": "DeepSeek R1 7B"
+        },
+        "llama3.2:latest": {
+          "name": "Llama 3.2"
+        },
+        "glm-ocr:latest": {
+          "name": "GLM OCR"
+        }
+      }
+    }
+  },
+  "model": "ollama/qwen3-coder-next-256k:latest"
+}

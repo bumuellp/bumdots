@@ -1,6 +1,7 @@
 # Files that child repositories can modify without upstream template sync collisions
 README.md
 LICENSE
+.github/CODEOWNERS
 .gitignore
 .pre-commit-config.yaml
 .templatesyncignore

@@ -1,0 +1,27 @@
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+
+# Match GitHub HTTPS, SSH (scp-style), and ssh://
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+	path = ~/.config/git/config-github
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+	path = ~/.config/git/config-github
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*"]
+	path = ~/.config/git/config-github
+
+[includeIf "hasconfig:remote.*.url:ssh://git@github.com/**"]
+	path = ~/.config/git/config-github
+
+[http]
+	postBuffer = 1572864000
+[init]
+	defaultBranch = main
+
+# Include local / private git configurations if present
+[include]
+	path = ~/.gitconfig.local

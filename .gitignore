@@ -14,3 +14,35 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Security: SSH private keys and known hosts
+.ssh/id_*
+!.ssh/id_*.pub
+.ssh/deploy_key*
+!.ssh/deploy_key*.pub
+.ssh/*-id_*
+!.ssh/*-id_*.pub
+.ssh/known_hosts*
+
+# Security: CLI auth tokens and session credentials
+.config/gh/hosts.yml
+.config/glab-cli/config.yml
+.netrc
+
+# Security: Cloud and container credentials
+.aws/
+.docker/config.json
+.kube/config
+
+# Security: GPG private keys
+.gnupg/
+
+# Security: Shell histories (can contain passwords or tokens)
+.bash_history
+.zsh_history
+.lesshst
+.python_history
+
+# Security: Environment secrets
+*.env
+.env.*

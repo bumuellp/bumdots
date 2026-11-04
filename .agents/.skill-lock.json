@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "skills": {
+    "owasp-security": {
+      "source": "agamm/claude-code-owasp",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/agamm/claude-code-owasp.git",
+      "skillPath": ".claude/skills/owasp-security/SKILL.md",
+      "skillFolderHash": "be8639b4d51e4d644e76c922553c0739a6042337",
+      "installedAt": "2026-09-08T20:15:13.176Z",
+      "updatedAt": "2026-09-08T20:15:13.176Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-09-08T20:15:20.269Z",
+      "updatedAt": "2026-09-08T20:15:20.269Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  }
+}

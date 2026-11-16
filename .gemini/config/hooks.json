@@ -1,0 +1,16 @@
+{
+  "secret-guard": {
+    "PreToolUse": [
+      {
+        "matcher": "read_file|view_file|write_file|edit_file|run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.gemini/config/secret_guard.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

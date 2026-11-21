@@ -122,9 +122,6 @@ export PATH=$HOME/.opencode/bin:$PATH
 # Added by Antigravity CLI installer
 export PATH="$HOME/.local/bin:$PATH"
 
-# Dotfiles repository alias
-alias dotfiles='/usr/bin/git --git-dir=$HOME/repos/bumdots/ --work-tree=$HOME'
-
 # Local / private bash additions
 if [ -f "$HOME/.bashrc.local" ]; then
     . "$HOME/.bashrc.local"

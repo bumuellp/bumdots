@@ -51,6 +51,22 @@ Install pre-commit hooks for the bare repository:
 GIT_DIR=$HOME/repos/bumdots GIT_WORK_TREE=$HOME pre-commit install --hook-type pre-commit --hook-type commit-msg
 ```
 
+#### Troubleshooting: `node` Hooks & Bare Repository (`fatal: working tree '.' already exists`)
+
+When running `dotfiles commit` (or invoking `pre-commit` with `GIT_WORK_TREE=$HOME`), `pre-commit`'s `node` language installer runs `npm install git+file://...` without stripping `GIT_WORK_TREE` from the environment. As a result, `npm`'s internal `git clone` fails with:
+
+```text
+npm error fatal: working tree '.' already exists.
+```
+
+To build/warm the hook environments (for example, on first setup or after updating a `node`-based hook `rev:` like `mirrors-prettier` or `renovate-config-validator` in `.pre-commit-config.yaml`), run `pre-commit install-hooks` from any standard (non-bare) Git repository where `GIT_DIR`/`GIT_WORK_TREE` are not exported:
+
+```bash
+env --chdir=/path/to/any/normal-git-repo pre-commit install-hooks --config ~/.pre-commit-config.yaml
+```
+
+Once cached in `~/.cache/pre-commit`, `dotfiles commit` will reuse the built environments without invoking `npm install`.
+
 ---
 
 ## 💻 Daily Usage Workflow
@@ -137,6 +153,8 @@ dotfiles-priv checkout
 
 ```bash
 GIT_DIR=$HOME/repos/bumdots GIT_WORK_TREE=$HOME pre-commit install --hook-type pre-commit --hook-type commit-msg
+# Warm hook environments from any standard (non-bare) Git repo to avoid GIT_WORK_TREE leaking into npm install
+env --chdir=/path/to/any/normal-git-repo pre-commit install-hooks --config ~/.pre-commit-config.yaml
 ```
 
 ---
